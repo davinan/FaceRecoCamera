@@ -8,6 +8,7 @@ import mc_face
 
 # Get a reference to webcam #0 (the default one)
 def face_reco():
+    print("Panda Laotie Softare initiated")
     video_capture = cv2.VideoCapture(0)
 
     temp = img_file_parser.img_parser()
@@ -61,11 +62,19 @@ def face_reco():
                 except ValueError:
                     matchingFace = -1
                 faceLength = len(match)
-                
-                
+
                 if matchingFace == -1:
                     if detected:
-                        largeNewName = raw_input("Input your name: ")
+                        print("New face found, please say your name for the record\n")
+                        # largeNewName = raw_input("Input your name: ")
+
+                        # largeNewName = voice2text()
+                        # t = voice2text()
+                        # x = threading.Thread(target=t.v2t)
+                        # x.start()
+                        t = voice2text.voice2text()
+                        largeNewName = t.v2t()
+
                         detected = False
                         if not largeNewName == "X" and not largeNewName == "x":
                             name_list.append(largeNewName)
@@ -118,12 +127,14 @@ def face_reco():
             # # Draw a label with a name below the face
             cv2.rectangle(frame, (left, bottom - 35), (right, bottom + 40), (0, 0, 255), 2)
             font = cv2.FONT_HERSHEY_DUPLEX
+
             cv2.putText(frame, name1, (left + 6, bottom - 6), font, 1, (0, 255, 0), 1)
             cv2.putText(frame, str(age1), (left + 6, bottom + 16), font, 0.4, (0, 255, 0), 1)
             cv2.putText(frame, gender1, (left + 6, bottom + 27), font, 0.4, (0, 255, 0), 1)
             cv2.putText(frame, glass1, (left + 6, bottom + 38), font, 0.4, (0, 255, 0), 1)
 
         # Display the resulting image
+        # cv2.putText(frame,"What's your name?",(320,240),cv2.FONT_HERSHEY_DUPLEX,1,(0, 255, 0), 1)
         cv2.imshow('Video', frame)
 
         # Hit 'q' on the keyboard to quit!
