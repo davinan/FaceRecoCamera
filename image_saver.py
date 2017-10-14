@@ -11,3 +11,4 @@ if __name__ == "__main__":
     v2t = voice2text.voice2text()
     t = threading.Thread(target=write_image, args=(img, v2t))
     t.start()
+    print("TEST MULTITHREADING")
