@@ -51,11 +51,11 @@
     <div class = "container">
       <div class = "row">
       <div class = "col-md-4">
-        <img class ="img-fluid d-block" src = "/static/PandaLaotie1.png">
+        <img id = 'currentVisitor'class ="img-fluid d-block" src = "/static/NA.png" width = 300 height = 300>
       </div>
       <div class = "col-md-8">
-        <h4 class=>
-          <font face = "OCR A Std">name</font>
+        <h4 id = "visitorName" class=>
+          <font face = "OCR A Std">{{var1}}</font>
           </font>
         </h4>
         <h5 class=>
@@ -83,8 +83,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <p id = "text1" class= "mx-auto">
-            <br> </p>
+          <p id = "text1" class= "mx-auto"></p>
           <img id = "pic1" class="img-fluid d-block" src="" width = 200 height = 200>
         </div>
         <div class="col-md-3">
@@ -97,7 +96,6 @@
         </div>
         <div class="col-md-3">
           <p id = "text4" class="mx-auto">
-            <br>
           </p>
           <img id = "pic4" class="img-fluid d-block" src="" width = 200 height = 200>
         </div>
@@ -108,8 +106,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <p id = "text5" class="mx-auto">
-            <br> </p>
+          <p id = "text5" class="mx-auto"> </p>
           <img id = "pic5" class="img-fluid d-block" src="" width = 200 height = 200>
         </div>
         <div class="col-md-3">
@@ -122,7 +119,6 @@
         </div>
         <div class="col-md-3">
           <p id = "text8" class="mx-auto">
-            <br>
           </p>
           <img id = "pic8" class="img-fluid d-block" src="" width = 200 height = 200>
         </div>
@@ -133,8 +129,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <p id = "text9" class="mx-auto">
-            <br> </p>
+          <p id = "text9" class="mx-auto"></p>
           <img id = "pic9" class="img-fluid d-block" src="" width = 200 height = 200>
         </div>
         <div class="col-md-3">
@@ -147,7 +142,6 @@
         </div>
         <div class="col-md-3">
           <p id = "text12" class="mx-auto">
-            <br>
           </p>
           <img id = "pic12" class="img-fluid d-block" src="" width = 200 height = 200>
         </div>
@@ -158,8 +152,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <p id = "text13" class="mx-auto">
-            <br> </p>
+          <p id = "text13" class="mx-auto"> </p>
           <img id = "pic13" class="img-fluid d-block" src="" width = 200 height = 200>
         </div>
         <div class="col-md-3">
@@ -172,7 +165,6 @@
         </div>
         <div class="col-md-3">
           <p id = "text16" class="mx-auto">
-            <br>
           </p>
           <img id = "pic16" class="img-fluid d-block" src="" width = 200 height = 200>
         </div>
@@ -183,8 +175,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <p id = "text17" class="mx-auto">
-            <br> </p>
+          <p id = "text17" class="mx-auto"></p>
           <img id = "pic17" class="img-fluid d-block" src="" width = 200 height = 200>
         </div>
         <div class="col-md-3">
@@ -197,7 +188,6 @@
         </div>
         <div class="col-md-3">
           <p id = "text20" class="mx-auto">
-            <br>
           </p>
           <img id = "pic20" class="img-fluid d-block" src="" width = 200 height = 200>
         </div>
@@ -215,8 +205,12 @@
     Clock loading...
   </div>
 
-
-
+  <dir id = "data">
+  <h5>
+    <font face = "OCR A Std">{{var2}}
+    </font>
+  </h5>
+  </dir>
 
 </body>
 
@@ -225,19 +219,25 @@
 
 //--------------------------------------------------------Initialization------------------------------------------------------------------------------
 var
+  var1 = '',
+  var2 = '',
   PortraitCount = 0,
   pics = [$('#pic1'),$('#pic2'),$('#pic3'),$('#pic4'),$('#pic5'),$('#pic6'),$('#pic7'),$('#pic8'),$('#pic9'),$('#pic10'),$('#pic11'),$('#pic12'),$('#pic13'),$('#pic14'),$('#pic15'),$('#pic16'),$('#pic17'),$('#pic18'),$('#pic19'),$('#pic20')],
   texts = [$('#text1'),$('#text2'),$('#text3'),$('#text4'),$('#text5'),$('#text6'),$('#text7'),$('#text8'),$('#text9'),$('#text10'),$('#text11'),$('#text12'),$('#text13'),$('#text14'),$('#text15'),$('#text16'),$('#text17'),$('#text18'),$('#text19'),$('#text20')],
   rows = [$('#row1'),$('#row2'),$('#row3'),$('#row4'),$('#row5')];
-
-
-
+document.getElementById("data").style.opacity = 0.1;
+//---------------------------------------------------------GettingUpdate-------------------------------------------------------------------------
+window.setInterval(function(){
+var1 = $('#visitorName').text();
+var2 = $('#data').text();
+console.log(var2);
+},100);
 
 
 //////////////////////////testingFunctions//////////////////////////
 
 function addsomething(){
-var p1 = new portrait('/static/PandaLaotie1.png','Panda',PortraitCount);
+var p1 = new portrait(var2,var1,PortraitCount);
 p1.show();
 }
 //////////////////////////testingFunctions//////////////////////////
