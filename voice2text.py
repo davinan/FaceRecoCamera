@@ -31,7 +31,7 @@ class voice2text:
             #wait for a second to let the recognizer adjust the 
             #energy threshold based on the surrounding noise level
             self.r.adjust_for_ambient_noise(source)
-            print "Say Something"
+            # print "Say Something"
             #listens for the user's input
             audio = self.r.listen(source)
                 

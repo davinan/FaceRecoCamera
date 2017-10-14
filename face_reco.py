@@ -5,6 +5,7 @@ import img_file_parser
 import voice2text
 import threading
 import mc_face
+import os
 
 # Get a reference to webcam #0 (the default one)
 def face_reco():
@@ -65,15 +66,15 @@ def face_reco():
 
                 if matchingFace == -1:
                     if detected:
-                        print("New face found, please say your name for the record\n")
-                        # largeNewName = raw_input("Input your name: ")
+                        # print("New face found, please say your name for the record\n")
+                        largeNewName = raw_input("Input your name: ")
 
                         # largeNewName = voice2text()
                         # t = voice2text()
                         # x = threading.Thread(target=t.v2t)
                         # x.start()
-                        t = voice2text.voice2text()
-                        largeNewName = t.v2t()
+                        # t = voice2text.voice2text()
+                        # largeNewName = t.v2t()
 
                         detected = False
                         if not largeNewName == "X" and not largeNewName == "x":
@@ -85,6 +86,7 @@ def face_reco():
                             roi = frame[int(top * 4 * 0.7): min(int(bottom * 4 * 1.4) , 480), int(left *4 * 0.7):min(int(right*4*1.4), 640)]
                             # print(type(roi))
                             cv2.imwrite(largeNewName + ".jpg", roi)
+                            os.system("cp "+largeNewName + ".jpg " + "../HackGT/yilun/static/Portrait/")
                             temp_specs = mc_face.analyse(largeNewName + ".jpg")
 
                             if not len(temp_specs) == 0:
