@@ -8,7 +8,7 @@ def img_parser():
     glass_list = []
     age_list = []
     gender_list = []
-    DIRECTORY = "../HackGT"
+    DIRECTORY = "../HackGT/"
     for f in os.listdir(DIRECTORY):
         if os.path.splitext(f)[1].lower() in ('.jpg', '.jpeg'):
             temp_img = face_recognition.load_image_file(f)
