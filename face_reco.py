@@ -13,6 +13,9 @@ def face_reco():
     name_list = temp[0]
     # print(name_list)
     face_encoding_list = temp[1]
+    age_list = temp[2]
+    gender_list = temp[3]
+    glass_list = temp[4]
 
 
     # Initialize some variables
@@ -26,8 +29,8 @@ def face_reco():
     while True:
 
         # Grab a single frame of video
-        # ret, frame = video_capture.read()   # Local camera
-        frame = kinect.get_video()          # Kinect Camera
+        ret, frame = video_capture.read()   # Local camera
+        # frame = kinect.get_video()          # Kinect Camera
         frame = cv2.resize(frame, (640, 480))
 
         # Resize frame of video to 1/4 size for faster face recognition processing
@@ -38,14 +41,20 @@ def face_reco():
             face_locations = []
             face_encodings = []
             face_names = []
+            face_ages = []
+            face_gender = []
+            face_glasses = []
             # Find all the faces and face encodings in the current frame of video
             face_locations = face_recognition.face_locations(small_frame)
             face_encodings = face_recognition.face_encodings(small_frame, face_locations)
 
             for face_encoding in face_encodings:
                 # See if the face is a match for the known face(s)
-                match = face_recognition.compare_faces(face_encoding_list, face_encoding, tolerance=0.55)
+                match = face_recognition.compare_faces(face_encoding_list, face_encoding, tolerance=0.6)
                 name = "Unknown"
+                age = "unknown"
+                gender = "unknown"
+                glass = "unknown"
                 try:
                     matchingFace = match.index(True)
                 except ValueError:
@@ -65,13 +74,21 @@ def face_reco():
                         detected = True
                 else:
                     name = name_list[matchingFace]
+                    if(len(age_list) > 0):
+                        age = age_list[matchingFace]
+                        gender = gender_list[matchingFace]
+                        glass = glass_list[matchingFace]
                     detected = False
                     
 
                 face_names.append(name)
+                face_ages.append(age)
+                face_gender.append(gender)
+                face_glasses.append(glass)
 
         process_this_frame = not process_this_frame
 
+        k = 0
         # Display the results
         for (top, right, bottom, left), name1 in zip(face_locations, face_names):
             # Scale back up face locations since the frame we detected in was scaled to 1/4 size
@@ -79,14 +96,20 @@ def face_reco():
             right *= 4
             bottom *= 4
             left *= 4
-
+            age1 = face_ages[k]
+            gender1 = face_gender[k]
+            glass1 = face_glasses[k]
+            k = k + 1
             # Draw a box around the face
             cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
 
             # # Draw a label with a name below the face
-            cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), 2)
+            cv2.rectangle(frame, (left, bottom - 35), (right, bottom + 40), (0, 0, 255), 2)
             font = cv2.FONT_HERSHEY_DUPLEX
-            cv2.putText(frame, name1, (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
+            cv2.putText(frame, name1, (left + 6, bottom - 6), font, 1, (0, 255, 0), 1)
+            cv2.putText(frame, str(age1), (left + 6, bottom + 16), font, 0.4, (0, 255, 0), 1)
+            cv2.putText(frame, gender1, (left + 6, bottom + 27), font, 0.4, (0, 255, 0), 1)
+            cv2.putText(frame, glass1, (left + 6, bottom + 38), font, 0.4, (0, 255, 0), 1)
 
         # Display the resulting image
         cv2.imshow('Video', frame)
