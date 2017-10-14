@@ -45,11 +45,6 @@ def face_reco():
             for face_encoding in face_encodings:
                 # See if the face is a match for the known face(s)
                 match = face_recognition.compare_faces(face_encoding_list, face_encoding, tolerance=0.55)
-                # al = distance.calc(face_encoding_list, face_encoding)
-                # idx = al.index(min(al))
-                # print(al)
-                # print(idx)
-                # print(match)
                 name = "Unknown"
                 try:
                     matchingFace = match.index(True)
@@ -65,8 +60,6 @@ def face_reco():
                         if not largeNewName == "X" and not largeNewName == "x":
                             name_list.append(largeNewName)
                             face_encoding_list.append(face_encoding)
-                            # print(largeNewName)
-                            # print(face_encoding)
                             cv2.imwrite(largeNewName + ".jpg", small_frame)
                     else:
                         detected = True
@@ -74,12 +67,10 @@ def face_reco():
                     name = name_list[matchingFace]
                     detected = False
                     
-                # name = name_list[idx + 1]
-                # print(name_list[idx])
+
                 face_names.append(name)
 
         process_this_frame = not process_this_frame
-        # print(face_names)
 
         # Display the results
         for (top, right, bottom, left), name1 in zip(face_locations, face_names):
@@ -89,8 +80,6 @@ def face_reco():
             bottom *= 4
             left *= 4
 
-            # print(name1)
-            # print([top, right, bottom, left])
             # Draw a box around the face
             cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
 
