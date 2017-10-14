@@ -39,7 +39,7 @@ class voice2text:
                 print "you said: " + text
                 return text
             
-            #error occurs when google could not understand what was said
+            #error occurs when google could not understand what was saidword2t
             
             except sr.UnknownValueError:
                 print("Google Speech Recognition could not understand audio")
@@ -48,6 +48,6 @@ class voice2text:
                 print("Could not request results from Google peech Recognition service")
 
 if __name__ == "__main__":
-    t = word2t()
+    t = voice2text()
     x=threading.Thread(target=t.v2t)
     x.start()
