@@ -6,6 +6,7 @@ import voice2text
 import threading
 import mc_face
 import os
+import tts
 
 # Get a reference to webcam #0 (the default one)
 class face_reco():
@@ -54,7 +55,7 @@ class face_reco():
 
                 for face_encoding in face_encodings:
                     # See if the face is a match for the known face(s)
-                    match = face_recognition.compare_faces(face_encoding_list, face_encoding, tolerance=0.5)
+                    match = face_recognition.compare_faces(face_encoding_list, face_encoding, tolerance=0.55)
                     name = "Unknown"
                     age = "unknown"
                     gender = "unknown"
@@ -68,14 +69,15 @@ class face_reco():
                     if matchingFace == -1:
                         if detected:
                             # print("New face found, please say your name for the record\n")
-                            largeNewName = raw_input("Input your name: ")
+                            tts.tts("New face found, please say your name for the record")
+                            # largeNewName = raw_input("Input your name: ")
 
                             # largeNewName = voice2text()
                             # t = voice2text()
                             # x = threading.Thread(target=t.v2t)
                             # x.start()
-                            # t = voice2text.voice2text()
-                            # largeNewName = t.v2t()
+                            t = voice2text.voice2text()
+                            largeNewName = t.v2t()
 
                             detected = False
                             if not largeNewName == "X" and not largeNewName == "x":
