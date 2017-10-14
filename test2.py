@@ -18,6 +18,9 @@ video_capture = cv2.VideoCapture(0)
 obama_image = face_recognition.load_image_file("fanzhe1.jpg")
 obama_face_encoding = face_recognition.face_encodings(obama_image)[0]
 
+face_encoding_list = [obama_face_encoding]
+name_list = ["fanzhe"]
+
 # Initialize some variables
 face_locations = []
 face_encodings = []
@@ -26,8 +29,8 @@ process_this_frame = True
 
 while True:
     # Grab a single frame of video
-    # ret, frame = video_capture.read()
-    frame = main.get_video()
+    ret, frame = video_capture.read()   # Local camera
+    # frame = main.get_video()          # Kinect Camera
     frame = cv2.resize(frame, (640, 480))
 
     # Resize frame of video to 1/4 size for faster face recognition processing
@@ -39,14 +42,24 @@ while True:
         face_locations = face_recognition.face_locations(small_frame)
         face_encodings = face_recognition.face_encodings(small_frame, face_locations)
 
-        face_names = []
         for face_encoding in face_encodings:
             # See if the face is a match for the known face(s)
-            match = face_recognition.compare_faces([obama_face_encoding], face_encoding)
+            match = face_recognition.compare_faces(face_encoding_list, face_encoding)
             name = "Unknown"
+            try:
+                matchingFace = match.index(True)
+            except ValueError:
+                matchingFace = -1
+            faceLength = len(match)
+            
+            if matchingFace == -1:
+                largeNewName = raw_input("Input your name")
+                name_list.append(largeNewName)
+                face_encoding_list.append(face_encoding)
+                cv2.imwrite(largeNewName + ".jpg", small_frame)
+            else:
+                name = name_list[matchingFace]
 
-            if match[0]:
-                name = "fanzhe"
 
             face_names.append(name)
 
@@ -62,7 +75,7 @@ while True:
         left *= 4
 
 
-        print([top, right, bottom, left])
+        # print([top, right, bottom, left])
         # Draw a box around the face
         cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
 
