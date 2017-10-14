@@ -1,6 +1,7 @@
 import speech_recognition as sr
 import threading
 import os
+import timeout_decorator
 
 
 
@@ -25,6 +26,7 @@ class voice2text:
             if microphone_name == self.mic_name:
                 self.device_id = i
 
+    @timeout_decorator.timeout(10)
     def v2t(self):
         with sr.Microphone(device_index = self.device_id, sample_rate = self.sample_rate, 
                         chunk_size = self.chunk_size) as source:

@@ -4,7 +4,7 @@ import wave
 import pyaudio
 def tts(text):
     translator = Translator('b2efca95d4b74c3ca0d1e5b0729963fe')
-    output = translator.speak(text, "zh-CN", "Male", "riff-16khz-16bit-mono-pcm")
+    output = translator.speak(text, "en-US", "Male", "riff-16khz-16bit-mono-pcm")
     # print(type(output))
     with open("file.wav", "w") as f:
         f.write(output)
@@ -23,4 +23,4 @@ def tts(text):
     stream.close()
     p.terminate()
 
-tts("压力克斯")
+tts("Welcome")

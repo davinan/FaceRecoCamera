@@ -17,9 +17,14 @@ def img_parser():
                 temp_specs = mc_face.analyse(f)
                 encoding_list.append(temp_encoding[0])
                 name_list.append(f.split(".")[0])
-                age_list.append(temp_specs[0])
-                gender_list.append(temp_specs[1])
-                glass_list.append(temp_specs[2])
+                if(len(temp_specs) > 0):
+                    age_list.append(temp_specs[0])
+                    gender_list.append(temp_specs[1])
+                    glass_list.append(temp_specs[2])
+                else:
+                    age_list.append(0)
+                    gender_list.append("Unknown")
+                    glass_list.append("Unknown")
     # print([name_list, encoding_list, age_list, gender_list, glass_list])
     return [name_list, encoding_list, age_list, gender_list, glass_list]
 if __name__ == "__main__" :

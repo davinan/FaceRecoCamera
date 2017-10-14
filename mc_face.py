@@ -31,8 +31,11 @@ def analyse(img):
     # print (json.dumps(parsed, sort_keys=True, indent=2))
     conn.close()
     # print(parsed)
-    temp = parsed[0]["faceAttributes"]
-    return [temp["age"], str(temp["gender"]), str(temp["glasses"])]
+    try:
+        temp = parsed[0]["faceAttributes"]
+        return [temp["age"], str(temp["gender"]), str(temp["glasses"])]
+    except:
+        return []
 
 
 if __name__ == "__main__":

@@ -55,7 +55,7 @@ class face_reco():
 
                 for face_encoding in face_encodings:
                     # See if the face is a match for the known face(s)
-                    match = face_recognition.compare_faces(face_encoding_list, face_encoding, tolerance=0.55)
+                    match = face_recognition.compare_faces(face_encoding_list, face_encoding, tolerance=0.5)
                     name = "Unknown"
                     age = "unknown"
                     gender = "unknown"
@@ -76,8 +76,12 @@ class face_reco():
                             # t = voice2text()
                             # x = threading.Thread(target=t.v2t)
                             # x.start()
+                            
                             t = voice2text.voice2text()
-                            largeNewName = t.v2t()
+                            try:
+                                largeNewName = t.v2t()
+                            except:
+                                largeNewName = "x"
 
                             detected = False
                             if not largeNewName == "X" and not largeNewName == "x":
@@ -89,7 +93,7 @@ class face_reco():
                                 roi = frame[int(top * 4 * 0.7): min(int(bottom * 4 * 1.4) , 480), int(left *4 * 0.7):min(int(right*4*1.4), 640)]
                                 # print(type(roi))
                                 cv2.imwrite(largeNewName + ".jpg", roi)
-                                os.system("cp "+largeNewName + ".jpg " + "../HackGT/yilun/static/Portrait/")
+                                os.system("cp \""+ largeNewName + ".jpg\"" + "  ../HackGT/yilun/static/Portrait/")
                                 temp_specs = mc_face.analyse(largeNewName + ".jpg")
                                 
                                 if not len(temp_specs) == 0:
