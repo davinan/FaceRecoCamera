@@ -67,15 +67,15 @@ class face_reco():
 
                     if matchingFace == -1:
                         if detected:
-                            print("New face found, please say your name for the record\n")
-                            # largeNewName = raw_input("Input your name: ")
+                            # print("New face found, please say your name for the record\n")
+                            largeNewName = raw_input("Input your name: ")
 
                             # largeNewName = voice2text()
                             # t = voice2text()
                             # x = threading.Thread(target=t.v2t)
                             # x.start()
-                            t = voice2text.voice2text()
-                            largeNewName = t.v2t()
+                            # t = voice2text.voice2text()
+                            # largeNewName = t.v2t()
 
                             detected = False
                             if not largeNewName == "X" and not largeNewName == "x":
@@ -145,9 +145,15 @@ class face_reco():
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
 
+
+if __name__ == "__main__" :
+    r = face_reco()
+    # # r.start()
+    r.reco()
 # Release handle to the webcam
-r = face_reco()
+# r = face_reco()
 # # r.start()
-r.reco()
+# r.reco()
 # video_capture.release()
 # cv2.destroyAllWindows()
+
