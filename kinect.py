@@ -4,7 +4,7 @@ import cv2
 import frame_convert2
 
 # cv2.namedWindow('Depth')
-cv2.namedWindow('Video')
+# cv2.namedWindow('Video')
 # print('Press ESC in window to stop')
 
 
