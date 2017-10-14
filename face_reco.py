@@ -144,8 +144,8 @@ class face_reco():
                 break
 
 # Release handle to the webcam
-# r = reco()
+r = face_reco()
 # # r.start()
-# r.face_reco()
+r.reco()
 # video_capture.release()
 # cv2.destroyAllWindows()
