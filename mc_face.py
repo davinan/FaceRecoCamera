@@ -12,11 +12,14 @@ headers = {
 }
 
 def analyse(img):
+  
     body = "" 
     filename = img
     f = open(filename, "rb")
     body = f.read()
     f.close()
+    
+    
     conn = httplib.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
     conn.request("POST", "/face/v1.0/detect?%s" % params, body, headers)
     response = conn.getresponse("")
@@ -27,8 +30,10 @@ def analyse(img):
     # print ("Response:")
     # print (json.dumps(parsed, sort_keys=True, indent=2))
     conn.close()
+    # print(parsed)
     temp = parsed[0]["faceAttributes"]
     return [temp["age"], str(temp["gender"]), str(temp["glasses"])]
 
+
 if __name__ == "__main__":
-    print(analyse("alex.jpg"))
+    print(analyse("yilun.jpg"))
