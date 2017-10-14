@@ -4,6 +4,7 @@ import kinect
 import img_file_parser
 import voice2text
 import threading
+import mc_face
 
 # Get a reference to webcam #0 (the default one)
 def face_reco():
@@ -50,7 +51,7 @@ def face_reco():
 
             for face_encoding in face_encodings:
                 # See if the face is a match for the known face(s)
-                match = face_recognition.compare_faces(face_encoding_list, face_encoding, tolerance=0.6)
+                match = face_recognition.compare_faces(face_encoding_list, face_encoding, tolerance=0.5)
                 name = "Unknown"
                 age = "unknown"
                 gender = "unknown"
@@ -69,7 +70,18 @@ def face_reco():
                         if not largeNewName == "X" and not largeNewName == "x":
                             name_list.append(largeNewName)
                             face_encoding_list.append(face_encoding)
-                            cv2.imwrite(largeNewName + ".jpg", small_frame)
+
+                            indi = face_encodings.index(face_encoding)
+                            (top, right, bottom, left) = face_locations[indi]
+                            roi = frame[int(top * 4 * 0.7): min(int(bottom * 4 * 1.4) , 480), int(left *4 * 0.7):min(int(right*4*1.4), 640)]
+                            # print(type(roi))
+                            cv2.imwrite(largeNewName + ".jpg", roi)
+                            temp_specs = mc_face.analyse(largeNewName + ".jpg")
+
+                            if not len(temp_specs) == 0:
+                                age_list.append(temp_specs[0])
+                                gender_list.append(temp_specs[1])
+                                glass_list.append(temp_specs[2])
                     else:
                         detected = True
                 else:

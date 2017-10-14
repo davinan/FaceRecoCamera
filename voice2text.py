@@ -1,11 +1,12 @@
 import speech_recognition as sr
 import threading
+import os
 
 
 
 class voice2text:
     def __init__(self):
-        self.mic_name = "HDA Intel PCH: ALC3266 Analog (hw:0,0)"
+        self.mic_name = "HDA Intel PCH: ALC892 Analog (hw:1,0)"
         #Sample rate is how often values are recorded
         self.sample_rate = 48000
         #Chunk is like a buffer. It stores 2048 samples (bytes of data)
@@ -51,3 +52,4 @@ if __name__ == "__main__":
     t = voice2text()
     x=threading.Thread(target=t.v2t)
     x.start()
+
