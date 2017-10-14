@@ -12,10 +12,23 @@
   <div class="py-5 h-25">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10">
           <h1 class="display-1">
             <font face = "OCR A Std">Panda Laotie</font>
           </h1>
+          <h5>
+            <font face = "OCR A Std">
+              ----------------------------------------------------------
+            </font>
+          </h5>
+          <h2>
+            <font face = "OCR A Std">
+                A Visual-Based Security System
+            </font>
+          </h2>
+        </div>
+        <div class = "col-md-2">
+          <img class="img-fluid d-block" src="/static/PandaLaotie1.png" width = 300 height = 300>
         </div>
       </div>
     </div>
@@ -24,17 +37,46 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="">
-            <font face = "OCR A Std">A Visual-Based Security System
+          <h5 class="">
+            <font face = "OCR A Std">Supported by CV technology, Panda Laotie is a system that allows you to <font color = '#A8FFA8'>keep a record of all the visitors to your home.</font>
             </font>
-          </h1>
+          </h5>
         </div>
       </div>
     </div>
   </div>
 
-  <button type="button" onclick = "addsomething()">givemesomething</button>
 
+  <div class = "py-5">
+    <div class = "container">
+      <div class = "row">
+      <div class = "col-md-4">
+        <img class ="img-fluid d-block" src = "/static/PandaLaotie1.png">
+      </div>
+      <div class = "col-md-8">
+        <h4 class=>
+          <font face = "OCR A Std">name</font>
+          </font>
+        </h4>
+        <h5 class=>
+          <font face = "OCR A Std">Welcome Back!
+          </font>
+        </h5>
+      </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+    <h5>
+    <div class = "container">
+      <button type="button" onclick = "addsomething()">givemesomething</button>
+    <font face = "OCR A Std">All of the <font color = 'cyan'>portraits</font> are stored here.
+    </font>
+  </h5>
+  </div>
+  </div>
 
   <div class="library">
   <div class="py-5" id = "row1">
@@ -237,7 +279,7 @@ class portrait{
 }
 
 function fadeIn(ndx){
-var  opaTemp = 0.01;
+var  opaTemp = 0;
   var fading = window.setInterval(function(){
   document.getElementById('pic'+(ndx+1)).style.opacity = opaTemp;
   document.getElementById('text'+(ndx+1)).style.opacity = opaTemp;
@@ -245,7 +287,21 @@ var  opaTemp = 0.01;
   opaTemp += 0.05;
   console.log(document.getElementById('text'+(ndx+1)).opacity);
   },50);
+  window.setTimeout(function(){
+  clearInterval(fading);
+  },1000);
+}
 
+
+function fadeOut(ndx){
+var  opaTemp = 1;
+  var fading = window.setInterval(function(){
+  document.getElementById('pic'+(ndx+1)).style.opacity = opaTemp;
+  document.getElementById('text'+(ndx+1)).style.opacity = opaTemp;
+  console.log(opaTemp);
+  opaTemp -= 0.06;
+  console.log(document.getElementById('text'+(ndx+1)).opacity);
+  },50);
   window.setTimeout(function(){
   clearInterval(fading);
   },1000);
