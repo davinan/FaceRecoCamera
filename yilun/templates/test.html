@@ -4,214 +4,243 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-beta.1.css" type="text/css"> </head>
-
+  <link rel="stylesheet" href="/static/particles/TEST.css" type="text/css"> </head>
 
 <body class="bg-dark text-white">
-  <div class="py-5 h-25">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10">
-          <h1 class="display-1">
-            <font face = "OCR A Std">Panda Laotie</font>
-          </h1>
-          <h5>
-            <font face = "OCR A Std">
-              ----------------------------------------------------------
-            </font>
-          </h5>
-          <h2>
-            <font face = "OCR A Std">
-                A Visual-Based Security System
-            </font>
-          </h2>
-        </div>
-        <div class = "col-md-2">
-          <img class="img-fluid d-block" src="/static/PandaLaotie1.png" width = 300 height = 300>
-        </div>
+<div id="particles-js"></div>
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10">
+        <h1 class="display-1">
+          <font face="OCR A Std">PandaWatcher</font>
+        </h1>
+        <h5>
+          <font face="OCR A Std"> ---------------------------------------------------------- </font>
+        </h5>
+        <h2>
+          <font face="OCR A Std"> A Visual-Based Security System </font>
+        </h2>
       </div>
+      <div class="col-md-2">
+        <img class="img-fluid d-block" src="/static/PandaLaotie1.png" width="300" height="300"> </div>
     </div>
   </div>
-  <div class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h5 class="">
-            <font face = "OCR A Std">Supported by CV technology, Panda Laotie is a system that allows you to <font color = '#A8FFA8'>keep a record of all the visitors to your home.</font>
-            </font>
-          </h5>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class = "py-5">
-    <div class = "container">
-      <div class = "row">
-      <div class = "col-md-4">
-        <img id = 'currentVisitor'class ="img-fluid d-block" src = "/static/NA.png" width = 300 height = 300>
-      </div>
-      <div class = "col-md-8">
-        <h4 id = "visitorName" class=>
-          <font face = "OCR A Std">{{var1}}</font>
-          </font>
-        </h4>
-        <h5 class=>
-          <font face = "OCR A Std">Welcome Back!
+</div>
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h5 class="">
+          <font face="OCR A Std">Supported by CV technology, PandaWatcher is a system that allows you to
+            <font color="#A8FFA8">keep a record of all people who visit your home.</font>
           </font>
         </h5>
       </div>
+    </div>
+  </div>
+</div>
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <img id="currentVisitor" class="img-fluid d-block" src="/static/NA.png" width="300" height="300"> </div>
+      <div class="col-md-8">
+        <h4 id="visitorName" class="">
+          <font face="OCR A Std"> Mr. Unknown: </font>
+        </h4>
+        <h5 id="greetings" class="">
+          <font face="OCR A Std"> Welcome... I don't recognize you from my
+            <font color="cyan">Archive.</font> Do I know you? </font>
+        </h5>
       </div>
     </div>
   </div>
+</div>
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-center"><font face = "OCR A Std">Here are all the portraits in the Archive...</font></h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="library">
+  <div class="py-5" id="row1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <p id="text1" class="mx-auto"></p>
+          <img id="pic1" class="img-fluid d-block" src="" width="200" height="200"> </div>
+        <div class="col-md-3">
+          <p id="text2" class="mx-auto"></p>
+          <img id="pic2" class="img-fluid d-block" src="" width="200" height="200"> </div>
+        <div class="col-md-3">
+          <p id="text3" class="mx-auto"></p>
+          <img id="pic3" class="img-fluid d-block" src="" width="200" height="200"> </div>
+        <div class="col-md-3">
+          <p id="text4" class="mx-auto"></p>
+          <img id="pic4" class="img-fluid d-block" src="" width="200" height="200"> </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="py-5" id="row2">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3">
+                <p id="text5" class="mx-auto"></p>
+                <img id="pic5" class="img-fluid d-block" src="" width="200" height="200"> </div>
+              <div class="col-md-3">
+                <p id="text6" class="mx-auto"></p>
+                <img id="pic6" class="img-fluid d-block" src="" width="200" height="200"> </div>
+              <div class="col-md-3">
+                <p id="text7" class="mx-auto"></p>
+                <img id="pic7" class="img-fluid d-block" src="" width="200" height="200"> </div>
+              <div class="col-md-3">
+                <p id="text8" class="mx-auto"></p>
+                <img id="pic8" class="img-fluid d-block" src="" width="200" height="200"> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="py-5" id="row3">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3">
+                <p id="text9" class="mx-auto"></p>
+                <img id="pic9" class="img-fluid d-block" src="" width="200" height="200"> </div>
+              <div class="col-md-3">
+                <p id="text10" class="mx-auto"></p>
+                <img id="pic10" class="img-fluid d-block" src="" width="200" height="200"> </div>
+              <div class="col-md-3">
+                <p id="text11" class="mx-auto"></p>
+                <img id="pic11" class="img-fluid d-block" src="" width="200" height="200"> </div>
+              <div class="col-md-3">
+                <p id="text12" class="mx-auto"></p>
+                <img id="pic12" class="img-fluid d-block" src="" width="200" height="200"> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="py-5" id="row4">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3">
+                <p id="text13" class="mx-auto"></p>
+                <img id="pic13" class="img-fluid d-block" src="" width="200" height="200"> </div>
+              <div class="col-md-3">
+                <p id="text14" class="mx-auto"></p>
+                <img id="pic14" class="img-fluid d-block" src="" width="200" height="200"> </div>
+              <div class="col-md-3">
+                <p id="text15" class="mx-auto"></p>
+                <img id="pic15" class="img-fluid d-block" src="" width="200" height="200"> </div>
+              <div class="col-md-3">
+                <p id="text16" class="mx-auto"></p>
+                <img id="pic16" class="img-fluid d-block" src="" width="200" height="200"> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="py-5" id="row5">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3">
+                <p id="text17" class="mx-auto"></p>
+                <img id="pic17" class="img-fluid d-block" src="" width="200" height="200"> </div>
+              <div class="col-md-3">
+                <p id="text18" class="mx-auto"></p>
+                <img id="pic18" class="img-fluid d-block" src="" width="200" height="200"> </div>
+              <div class="col-md-3">
+                <p id="text19" class="mx-auto"></p>
+                <img id="pic19" class="img-fluid d-block" src="" width="200" height="200"> </div>
+              <div class="col-md-3">
+                <p id="text20" class="mx-auto"></p>
+                <img id="pic20" class="img-fluid d-block" src="" width="200" height="200"> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  </div>
+<h1 class="text-center">Data Analyasis</h1>
+<div class="py-5 text-center bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="text-right col-md-6">
+        <div class="row my-5">
+          <div class="col-2 order-lg-2 col-2 text-center"><i class="d-block fa fa-columns fa-3x"></i></div>
+          <div class="col-10 text-lg-right text-left order-lg-1">
+              <img src="static/Portrait/{{ max_visitor }}.jpg", height="50px" width="50px" border-radius="10px">
+            <h4 class="text-primary">Most Frequent Visit</h4>
+            <p id = "MFV">The highest number of visits by one person...</p>
+              <p>{{ max_visitor }}</p>
+          </div>
+        </div>
+        <div class="row my-5">
+          <div class="col-2 order-lg-2 col-2 text-center"><i class="d-block fa fa-circle-thin fa-4x"></i></div>
+          <div class="col-10 text-lg-right text-left order-lg-1">
+            <h4 class="text-primary">Male/Female Ratio</h4>
+            <p id = "MFR">On average, for each 100 visitors, the gender ratio is...</p>
+              <p>{{ gen_Rto }}</p>
+          </div>
+        </div>
 
-
-  <div>
-    <h5>
-    <div class = "container">
-      <button type="button" onclick = "addsomething()">givemesomething</button>
-    <font face = "OCR A Std">All of the <font color = 'cyan'>portraits</font> are stored here.
-    </font>
+      </div>
+      <div class="text-left col-md-6">
+        <div class="row my-5">
+          <div class="col-2 text-center"><i class="d-block fa fa-battery-empty fa-3x"></i></div>
+          <div class="col-10">
+            <h4 class="text-primary">Total Visits</h4>
+            <p id = "TTW">Just how popular are you...</p>
+              <p>{{ total_count }}</p>
+          </div>
+        </div>
+        <div class="row my-5">
+          <div class="col-2 text-center"><i class="d-block mx-auto fa  fa-clone fa-3x"></i></div>
+          <div class="col-10">
+            <h4 class="text-primary">Glasses Ratio</h4>
+            <p id = "GLS">Also, the ratio of glasses-wearers is...</p>
+              <p>{{ gls_Rto }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="time">
+  <h4 class="text-center"> Clock loading... </h4>
+</div>
+<dir id="data">
+  <h5 class="text-center">
+    <font face="OCR A Std">{{var2}} </font>
   </h5>
-  </div>
-  </div>
-
-  <div class="library">
-  <div class="py-5" id = "row1">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <p id = "text1" class= "mx-auto"></p>
-          <img id = "pic1" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-        <div class="col-md-3">
-          <p id = "text2" class="mx-auto"></p>
-          <img id = "pic2" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-        <div class="col-md-3">
-          <p id = "text3" class="mx-auto"></p>
-          <img id = "pic3" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-        <div class="col-md-3">
-          <p id = "text4" class="mx-auto">
-          </p>
-          <img id = "pic4" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5"id = "row2">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <p id = "text5" class="mx-auto"> </p>
-          <img id = "pic5" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-        <div class="col-md-3">
-          <p id = "text6" class="mx-auto"></p>
-          <img id = "pic6" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-        <div class="col-md-3">
-          <p id = "text7" class="mx-auto"></p>
-          <img id = "pic7" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-        <div class="col-md-3">
-          <p id = "text8" class="mx-auto">
-          </p>
-          <img id = "pic8" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5"id = "row3">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <p id = "text9" class="mx-auto"></p>
-          <img id = "pic9" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-        <div class="col-md-3">
-          <p id = "text10" class="mx-auto"></p>
-          <img id = "pic10" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-        <div class="col-md-3">
-          <p id = "text11" class="mx-auto"></p>
-          <img id = "pic11" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-        <div class="col-md-3">
-          <p id = "text12" class="mx-auto">
-          </p>
-          <img id = "pic12" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5"id = "row4">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <p id = "text13" class="mx-auto"> </p>
-          <img id = "pic13" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-        <div class="col-md-3">
-          <p id = "text14" class="mx-auto"></p>
-          <img id = "pic14" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-        <div class="col-md-3">
-          <p id = "text15" class="mx-auto"></p>
-          <img id = "pic15" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-        <div class="col-md-3">
-          <p id = "text16" class="mx-auto">
-          </p>
-          <img id = "pic16" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5"id = "row5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <p id = "text17" class="mx-auto"></p>
-          <img id = "pic17" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-        <div class="col-md-3">
-          <p id = "text18" class="mx-auto"> </p>
-          <img id = "pic18" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-        <div class="col-md-3">
-          <p id = "text19" class="mx-auto"></p>
-          <img id = "pic19" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-        <div class="col-md-3">
-          <p id = "text20" class="mx-auto">
-          </p>
-          <img id = "pic20" class="img-fluid d-block" src="" width = 200 height = 200>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
+</dir>
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-
-
-  <div id = "time">
-    Clock loading...
-  </div>
-
-  <dir id = "data">
-  <h5>
-    <font face = "OCR A Std">{{var2}}
-    </font>
-  </h5>
-  </dir>
-
+  <script src="/static/particles/particles.js"></script>
+  <script src="/static/particles/app.js"></script>
 </body>
 
 
@@ -221,25 +250,35 @@
 var
   var1 = '',
   var2 = '',
+  var3 = '',
   PortraitCount = 0,
   pics = [$('#pic1'),$('#pic2'),$('#pic3'),$('#pic4'),$('#pic5'),$('#pic6'),$('#pic7'),$('#pic8'),$('#pic9'),$('#pic10'),$('#pic11'),$('#pic12'),$('#pic13'),$('#pic14'),$('#pic15'),$('#pic16'),$('#pic17'),$('#pic18'),$('#pic19'),$('#pic20')],
   texts = [$('#text1'),$('#text2'),$('#text3'),$('#text4'),$('#text5'),$('#text6'),$('#text7'),$('#text8'),$('#text9'),$('#text10'),$('#text11'),$('#text12'),$('#text13'),$('#text14'),$('#text15'),$('#text16'),$('#text17'),$('#text18'),$('#text19'),$('#text20')],
-  rows = [$('#row1'),$('#row2'),$('#row3'),$('#row4'),$('#row5')];
+  rows = [$('#row1'),$('#row2'),$('#row3'),$('#row4'),$('#row5')],
+  archive = [];
 document.getElementById("data").style.opacity = 0.1;
 //---------------------------------------------------------GettingUpdate-------------------------------------------------------------------------
-window.setInterval(function(){
-var1 = $('#visitorName').text();
-var2 = $('#data').text();
-console.log(var2);
-},100);
+var
+  var1 = {{var1|tojson}},
+  oldvar1 = var1;
+  var2 = {{var2|tojson}},
+  var3 = {{total_count}},
+  var4 = {{age_Ave}},
+  var5 = {{gen_Rto}},
+  var6 = {{gls_Rto}},
+  var7 = {{max_visit}};
+updateAnalysis();
+update();
+alert(var1);
+
+
+
+
 
 
 //////////////////////////testingFunctions//////////////////////////
 
-function addsomething(){
-var p1 = new portrait(var2,var1,PortraitCount);
-p1.show();
-}
+
 //////////////////////////testingFunctions//////////////////////////
 
 
@@ -251,11 +290,32 @@ window.onload = function(){
     clock.style.color = 'white';
     setInterval(function(){
         var now = new Date();
-        clock.innerHTML = 'Designed by Panda Laotie. All Rights Reserved. Time: ' + now.getFullYear() + '.' + (now.getMonth()+1) + '.' + now.getDate() + '   ' + now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+        clock.innerText = 'Designed by Panda Laotie. All Rights Reserved. Time: ' + now.getFullYear() + '.' + (now.getMonth()+1) + '.' + now.getDate() + '   ' + now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
     }
     ,100);
 }
 //addingPortrait-----------------------------------------------------------------------------------------------------------------------------------
+
+
+function update(){
+PortraitCount = 0;
+var
+  var1 = {{var1|tojson}},
+  var2 = {{var2|tojson}};
+for (ndx = 0; ndx < var2.length ;ndx++){
+var person = new portrait(var2[ndx],var1[ndx],PortraitCount);
+archive.concat(person);
+person.show();
+}
+}
+
+function updateAnalysis(){
+  $('#MFV').text("The highest number of visits by one person is: " + var7);
+  $('#TTW').text("The total number of visits is: " + var3);
+  $('#MFR').text("The gender ratio of the visitors is: " + var5);
+  $('#GLS').text("The ratio for glass-wearing visitors is: "var6);
+}
+
 
 class portrait{
   constructor(pic,name,ndx){

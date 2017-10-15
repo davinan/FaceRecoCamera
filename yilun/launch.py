@@ -1,23 +1,37 @@
 from flask import Flask, render_template
 
-import db_wrapper
+from db_wrapper import db_wrapper
 import os
 
 
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello():
+    conn = db_wrapper()
 
     DIRECTORY = "../yilun/static/Portrait/"
     nameList = []
+    visitList = []
     pathList = []
     for f in os.listdir(DIRECTORY):
         if os.path.splitext(f)[1].lower() in ('.jpg', '.jpeg'):
             nameList.append(f.split(".")[0])
+            # countList.append(conn.name_count(f.split(".")[0]))
+            visitList.append(f.split(".")[0])
             pathList.append('/static/'+ f.split(".")[0] + '.jpg')
-    return render_template('test.html',var1 = nameList, var2 = pathList)
+
+
+    totalNum = conn.total_count()
+    ageAve = conn.age_average()
+    genRto = conn.gender_ratio()
+    glsRto = conn.glass_ratio()
+    maxVisit = conn.max_visit()
+    # print(nameList)
+    print(totalNum)
+    return render_template('test.html',var1 = nameList, visit_List = visitList, var2 = pathList, total_count = totalNum, age_Ave = ageAve, gen_Rto = genRto, gls_Rto = glsRto, max_visit = maxVisit, max_visitor = maxVisit[0])
 
 @app.route('/Video')
 def index():
@@ -38,4 +52,4 @@ def video_feed():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

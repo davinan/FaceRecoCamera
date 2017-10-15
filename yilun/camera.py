@@ -17,7 +17,7 @@ class VideoCamera(object):
     
     def get_frame(self):
         try:
-            self.image = cv2.imread("../HackGT/static/Stream.jpg")
+            self.image = cv2.imread("../static/Stream.jpg")
 
         # We are using Motion JPEG, but OpenCV defaults to capture raw images,
         # so we must encode it into JPEG in order to correctly display the
