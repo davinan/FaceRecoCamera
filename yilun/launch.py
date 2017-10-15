@@ -6,10 +6,11 @@ import os
 
 
 app = Flask(__name__)
-conn = db_wrapper()
+
 
 @app.route("/")
 def hello():
+    conn = db_wrapper()
 
     DIRECTORY = "../yilun/static/Portrait/"
     nameList = []
@@ -30,7 +31,7 @@ def hello():
     maxVisit = conn.max_visit()
     # print(nameList)
     print(totalNum)
-    return render_template('test.html',var1 = nameList, visit_List = visitList, var2 = pathList, total_count = totalNum, age_Ave = ageAve, gen_Rto = genRto, gls_Rto = glsRto, max_visit = maxVisit)
+    return render_template('test.html',var1 = nameList, visit_List = visitList, var2 = pathList, total_count = totalNum, age_Ave = ageAve, gen_Rto = genRto, gls_Rto = glsRto, max_visit = maxVisit, max_visitor = maxVisit[0])
 
 @app.route('/Video')
 def index():
@@ -51,4 +52,4 @@ def video_feed():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
