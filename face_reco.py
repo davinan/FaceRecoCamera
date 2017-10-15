@@ -99,20 +99,25 @@ class face_reco():
                                 ct = self.db.name_count(largeNewName)
                                 cv2.imwrite(largeNewName + str(ct + 1) + ".jpg", roi)
                                 os.system("cp \"" + largeNewName + str(ct + 1) + ".jpg\"" + "  ../HackGT/yilun/static/Portrait/")
-                                temp_specs = mc_face.analyse(largeNewName + ".jpg")
+                                temp_specs = mc_face.analyse(largeNewName +str(ct + 1)+ ".jpg")
 
                                 if not len(temp_specs) == 0:
                                     age_list.append(temp_specs[0])
                                     gender_list.append(temp_specs[1])
                                     glass_list.append(temp_specs[2])
-
-                                    self.db.add_person(largeNewName, largeNewName + str(ct + 1), temp_specs[0],
+                                    try:
+                                        self.db.add_person_full(largeNewName, largeNewName + str(ct + 1), temp_specs[0],
                                                        temp_specs[1] == "Male", temp_specs[2] == "ReaderGlasses")
+                                    except:
+                                        pass
                                 else:
                                     age_list.append(99)
                                     gender_list.append("UNKNOWN")
                                     glass_list.append("UNKNOWN")
-                                    self.db.add_person(largeNewName, largeNewName + str(ct + 1))
+                                    try:
+                                        self.db.add_person(largeNewName, largeNewName + str(ct + 1))
+                                    except:
+                                        pass
 
                         else:
                             detected = True

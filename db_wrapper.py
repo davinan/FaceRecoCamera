@@ -26,14 +26,19 @@ class db_wrapper():
         data = self.cursor.fetchone()
         return data[0]
 
-    def add_person(self, name, namemod, age, gender, glasses):
+    def add_person_full(self, name, namemod, age, gender, glasses):
         try:
             # Execute the SQL command
             self.cursor.execute("INSERT INTO WHOLE (Name, AGE, GENDER, GLASSES, VISIT) " +
                                 "VALUES ('%s', '%d', '%d', '%d', 1)" % (namemod, age, gender, glasses))
             # Commit your changes in the database
             self.db.commit()
-            self.cursor.execute("UPDATE NAME SET COUNT = COUNT + 1 WHERE Name = '%s'" % name)
+            if self.name_count(name) == 0:
+                self.cursor.execute("INSERT INTO NAME (NAME, COUNT) VALUES ('%s', '%d')" % (name, 1))
+            else:
+
+                self.cursor.execute("UPDATE NAME SET COUNT = COUNT + 1 WHERE Name = '%s'" % name)
+            self.db.commit()
         except:
             # Rollback in case there is any error
             self.db.rollback()
