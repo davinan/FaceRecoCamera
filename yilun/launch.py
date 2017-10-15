@@ -1,5 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, Response
 
+from camera import VideoCamera
 from db_wrapper import db_wrapper
 import os
 
@@ -30,8 +31,10 @@ def hello():
     glsRto = conn.glass_ratio()
     maxVisit = conn.max_visit()
     # print(nameList)
-    print(totalNum)
-    return render_template('test.html',var1 = nameList, visit_List = visitList, var2 = pathList, total_count = totalNum, age_Ave = ageAve, gen_Rto = genRto, gls_Rto = glsRto, max_visit = maxVisit, max_visitor = maxVisit[0])
+    # print(ageAve)
+    return render_template('index1.html', name_List=nameList, visit_List=visitList, var2=pathList, total_count=totalNum,
+                           age_Ave=ageAve, gen_Rto=genRto, gls_Rto=glsRto, max_visit=maxVisit, max_visitor=maxVisit[0],
+                           max_time=maxVisit[4])
 
 @app.route('/Video')
 def index():

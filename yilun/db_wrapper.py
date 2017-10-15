@@ -8,7 +8,10 @@ class db_wrapper():
     def total_count(self):
         self.cursor.execute("SELECT SUM(COUNT) FROM NAME")
         data = self.cursor.fetchone()
-        return int(data[0])
+        if data[0] is None:
+            return 0
+        else:
+            return int(data[0])
 
     def age_average(self):
         self.cursor.execute("SELECT AVG(AGE) FROM WHOLE")

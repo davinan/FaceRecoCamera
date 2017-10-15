@@ -7,5 +7,35 @@
       <Visible>1</Visible>
     </schema>
     <schema id="3" parent="1" name="information_schema"/>
+    <table id="4" parent="2" name="NAME"/>
+    <table id="5" parent="2" name="WHOLE"/>
+    <column id="6" parent="4" name="NAME">
+      <Position>1</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="7" parent="4" name="COUNT">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="8" parent="5" name="Name">
+      <Position>1</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="9" parent="5" name="AGE">
+      <Position>2</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="10" parent="5" name="GENDER">
+      <Position>3</Position>
+      <DataType>tinyint(4)|0</DataType>
+    </column>
+    <column id="11" parent="5" name="GLASSES">
+      <Position>4</Position>
+      <DataType>tinyint(4)|0</DataType>
+    </column>
+    <column id="12" parent="5" name="VISIT">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
   </database-model>
 </dataSource>

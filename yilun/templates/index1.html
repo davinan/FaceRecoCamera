@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>New Age - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="../static/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link rel="stylesheet" href="../static/particles/TEST.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="../static/device-mockups/device-mockups.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/new-age.css" rel="stylesheet">
+
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <div id="particles-js" style="height: 1000px; width: 2000px"></div>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top" style="font-size: xx-large">Panda Watcher</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#download" style="font-size: x-large">Visitor</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#features" style="font-size: x-large">Data</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact" style="font-size: x-large">Video</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="Video" style="font-size: x-large">Live</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead">
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-lg-7 my-auto">
+            <div class="header-content mx-auto">
+              <h1 class="mb-5">Panda Watcher is a Deep Learning, Computer Vision,
+                  Voice Recognition Based,
+                  Cognitive Hardware and Program that Logs People Visiting
+              Your Home, Your Office, or Your Business for You</h1>
+              <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">View Demo</a>
+            </div>
+          </div>
+          <div class="col-lg-5 my-auto">
+           <div>
+               <img src="../static/img/show.gif" style="height: 400px">
+           </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="download bg-primary text-center" id="download">
+      <h1>Your Visitor</h1>
+      <hr>
+      <div class="container container-fluid" style="margin-top: 30px">
+        <div class="row">
+            {% for name in name_List %}
+                <div class="col-lg-2 text-center">
+                    <img src="../static/Portrait/{{ name }}.jpg" style="height: 100px; width: 100px; border-radius: 50px">
+                </div>
+            {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-heading text-center">
+          <h2>I Visit U Most frequently</h2>
+          <img src="../static/Portrait/{{ max_visitor }}.jpg" height= "357" width="459" style="border-radius: 100px" >
+          <h3> I VISIT U</h3>
+          <h2>{{ max_time }}</h2>
+          <h3> TIMES</h3>
+          <hr>
+        </div>
+        <div class="container-fluid text-center">
+            <h1> IN TOTAL </h1>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 container-fluid text-center text-capitalize">
+              <i class="fa fa-5x fa-birthday-cake"></i>
+              <hr>
+              <h3>
+                  Average Age:
+              </h3>
+              <h3>
+                  {{ age_Ave }}
+              </h3>
+          </div>
+          <div class="col-lg-4 container-fluid text-center text-capitalize">
+              <i class="fa fa-5x fa-male"></i>
+              <i class="fa fa-5x fa-female"></i>
+              <hr>
+              <h3>
+                  Gender Ratio:
+              </h3>
+              <h3>
+                  {{ gen_Rto }}
+              </h3>
+          </div>
+          <div class="col-lg-4 container-fluid text-center text-capitalize">
+              <i class="fa fa-5x fa-eye"></i>
+              <hr>
+              <h3>
+                  Glasses Ratio:
+              </h3>
+              <h3>
+                  {{ gls_Rto }}
+              </h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="cta-content">
+        <div class="container text-center">
+          <iframe width="1000" height="600" src="https://www.youtube.com/embed/huUbkpw5FQQ" frameborder="0" allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+      <div class="overlay"></div>
+    </section>
+
+
+    <footer>
+      <div class="container">
+        <p>&copy; Ruoyang, Fanzhe, Yilun</p>
+{#        <ul class="list-inline">#}
+{#          <li class="list-inline-item">#}
+{#            <a href="#">Privacy</a>#}
+{#          </li>#}
+{#          <li class="list-inline-item">#}
+{#            <a href="#">Terms</a>#}
+{#          </li>#}
+{#          <li class="list-inline-item">#}
+{#            <a href="#">FAQ</a>#}
+{#          </li>#}
+{#        </ul>#}
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/popper/popper.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../static/particles/particles.js"></script>
+    <script src="../static/particles/app.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../static/js/new-age.js"></script>
+
+  </body>
+
+</html>
