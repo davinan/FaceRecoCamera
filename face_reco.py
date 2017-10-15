@@ -7,11 +7,13 @@ import threading
 import mc_face
 import os
 import tts
+import db_wrapper
 
 # Get a reference to webcam #0 (the default one)
 class face_reco():
     def __init__(self):
         self.video_capture = cv2.VideoCapture(0)
+        self.db = db_wrapper.db_wrapper()
 
     def reco(self):
         temp = img_file_parser.img_parser()
@@ -81,6 +83,7 @@ class face_reco():
                             try:
                                 largeNewName = t.v2t()
                             except:
+                                tts.tts("Timeout")
                                 largeNewName = "x"
 
                             detected = False
@@ -92,14 +95,25 @@ class face_reco():
                                 (top, right, bottom, left) = face_locations[indi]
                                 roi = frame[int(top * 4 * 0.7): min(int(bottom * 4 * 1.4) , 480), int(left *4 * 0.7):min(int(right*4*1.4), 640)]
                                 # print(type(roi))
-                                cv2.imwrite(largeNewName + ".jpg", roi)
-                                os.system("cp \""+ largeNewName + ".jpg\"" + "  ../HackGT/yilun/static/Portrait/")
+
+                                ct = self.db.name_count(largeNewName)
+                                cv2.imwrite(largeNewName + str(ct + 1) + ".jpg", roi)
+                                os.system("cp \"" + largeNewName + str(ct + 1) + ".jpg\"" + "  ../HackGT/yilun/static/Portrait/")
                                 temp_specs = mc_face.analyse(largeNewName + ".jpg")
-                                
+
                                 if not len(temp_specs) == 0:
                                     age_list.append(temp_specs[0])
                                     gender_list.append(temp_specs[1])
                                     glass_list.append(temp_specs[2])
+
+                                    self.db.add_person(largeNewName, largeNewName + str(ct + 1), temp_specs[0],
+                                                       temp_specs[1] == "Male", temp_specs[2] == "ReaderGlasses")
+                                else:
+                                    age_list.append(99)
+                                    gender_list.append("UNKNOWN")
+                                    glass_list.append("UNKNOWN")
+                                    self.db.add_person(largeNewName, largeNewName + str(ct + 1))
+
                         else:
                             detected = True
                     else:
