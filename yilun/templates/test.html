@@ -212,6 +212,7 @@
             <h4 class="text-primary">Total Visits</h4>
             <p id = "TTW">Just how popular are you...
               <br >Ms. Panda.</p>
+              <p>{{ total_count }}</p>
           </div>
         </div>
         <div class="row my-5">
@@ -261,14 +262,14 @@ var
   var1 = {{var1|tojson}},
   oldvar1 = var1;
   var2 = {{var2|tojson}},
-  var3 = {{total_count|tojson}},
-  var4 = {{age_Ave|tojson}},
-  var5 = {{gen_Rto|tojson}},
-  var6 = {{gls_Rto|tojson}},
-  var7 = {{max_visit|tojson}};
+  var3 = {{total_count}},
+  var4 = {{age_Ave}},
+  var5 = {{gen_Rto}},
+  var6 = {{gls_Rto}},
+  var7 = {{max_visit}};
 updateAnalysis();
 update();
-
+alert(var1);
 
 
 

@@ -28,9 +28,9 @@ def hello():
     genRto = conn.gender_ratio()
     glsRto = conn.glass_ratio()
     maxVisit = conn.max_visit()
-
-    return render_template('test.html',var1 = nameList, visit_List = visitList, var2 = pathList, total_count = totalNum, age_Ave
-                            = ageAve, gen_Rto = genRto, gls_Rto = glsRto, max_visit = maxVisit)
+    # print(nameList)
+    print(totalNum)
+    return render_template('test.html',var1 = nameList, visit_List = visitList, var2 = pathList, total_count = totalNum, age_Ave = ageAve, gen_Rto = genRto, gls_Rto = glsRto, max_visit = maxVisit)
 
 @app.route('/Video')
 def index():
