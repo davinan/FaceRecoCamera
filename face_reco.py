@@ -36,8 +36,8 @@ class face_reco():
         while True:
 
             # Grab a single frame of video
-            ret, frame = self.video_capture.read()   # Local camera
-            # frame = kinect.get_video()          # Kinect Camera
+            # ret, frame = self.video_capture.read()   # Local camera
+            frame = kinect.get_video()          # Kinect Camera
             frame = cv2.resize(frame, (640, 480))
 
             # Resize frame of video to 1/4 size for faster face recognition processing
@@ -70,21 +70,22 @@ class face_reco():
 
                     if matchingFace == -1:
                         if detected:
-                            # print("New face found, please say your name for the record\n")
-                            # tts.tts("New face found, please say your name for the record")
-                            largeNewName = raw_input("Input your name: ")
+                            print("New face found, please say your name for the record\n")
+                            tts.tts("New face found, Say your name!")
+                            # largeNewName = raw_input("Input your name: ")
 
                             # largeNewName = voice2text()
                             # t = voice2text()
                             # x = threading.Thread(target=t.v2t)
                             # x.start()
-                            
-                            # t = voice2text.voice2text()
-                            # try:
-                            #     largeNewName = t.v2t()
-                            # except:
-                            #     tts.tts("Timeout")
-                            #     largeNewName = "x"
+
+                            largeNewName = ""
+                            t = voice2text.voice2text()
+                            try:
+                                largeNewName = t.v2t()
+                            except:
+                                tts.tts("Timeout")
+                                largeNewName = "x"
 
                             detected = False
                             if not largeNewName == "X" and not largeNewName == "x":
