@@ -6,18 +6,31 @@ import os
 
 
 app = Flask(__name__)
+conn = db_wrapper()
 
 @app.route("/")
 def hello():
 
     DIRECTORY = "../yilun/static/Portrait/"
     nameList = []
+    visitList = []
     pathList = []
     for f in os.listdir(DIRECTORY):
         if os.path.splitext(f)[1].lower() in ('.jpg', '.jpeg'):
             nameList.append(f.split(".")[0])
+            # countList.append(conn.name_count(f.split(".")[0]))
+            visitList.append(f.split(".")[0])
             pathList.append('/static/'+ f.split(".")[0] + '.jpg')
-    return render_template('test.html',var1 = nameList, var2 = pathList)
+
+
+    totalNum = conn.total_count()
+    ageAve = conn.age_average()
+    genRto = conn.gender_ratio()
+    glsRto = conn.glass_ratio()
+    maxVisit = conn.max_visit()
+
+    return render_template('test.html',var1 = nameList, visit_List = visitList, var2 = pathList, total_count = totalNum, age_Ave
+                            = ageAve, gen_Rto = genRto, gls_Rto = glsRto, max_visit = maxVisit)
 
 @app.route('/Video')
 def index():
