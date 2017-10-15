@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 
-import db_wrapper
+from db_wrapper import db_wrapper
 import os
 
 
