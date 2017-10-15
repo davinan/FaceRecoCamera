@@ -8,9 +8,6 @@ import mc_face
 import os
 import tts
 import db_wrapper
-import datetime
-
-now = datetime.datetime.now()
 
 # Get a reference to webcam #0 (the default one)
 class face_reco():
@@ -81,7 +78,7 @@ class face_reco():
                             # t = voice2text()
                             # x = threading.Thread(target=t.v2t)
                             # x.start()
-
+                            
                             largeNewName = ""
                             t = voice2text.voice2text()
                             try:
@@ -131,11 +128,6 @@ class face_reco():
                             age = age_list[matchingFace]
                             gender = gender_list[matchingFace]
                             glass = glass_list[matchingFace]
-
-                        datenow = str(now.year) + str(now.month) + str(now.day)
-                        if self.db.last_time(name) != datenow
-                            self.db.update_visit(name)
-                        
                         detected = False
                         
 

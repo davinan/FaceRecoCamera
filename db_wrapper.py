@@ -1,7 +1,5 @@
 import MySQLdb
-import datetime
 
-now = datetime.datetime.now()
 
 class db_wrapper():
     def __init__(self):
@@ -31,14 +29,11 @@ class db_wrapper():
     def add_person_full(self, name, namemod, age, gender, glasses):
         try:
             # Execute the SQL command
-            self.cursor.execute("INSERT INTO WHOLE (Name, AGE, GENDER, GLASSES, VISIT, TIME) " +
-                                "VALUES ('%s', '%d', '%d', '%d', 1, '%s')" % (namemod, age, gender, glasses, str(now.year) + str(now.month) + str(now.day))
+            self.cursor.execute("INSERT INTO WHOLE (Name, AGE, GENDER, GLASSES, VISIT) " +
+                                "VALUES ('%s', '%d', '%d', '%d', 1)" % (namemod, age, gender, glasses))
             # Commit your changes in the database
             self.db.commit()
-            if self.name_count(name) == 0:
-                self.cursor.execute("INSERT INTO NAME (NAME, COUNT) VALUES ('%s', '%d')" % (name, 1))
-            else:
-                self.cursor.execute("UPDATE NAME SET COUNT = COUNT + 1 WHERE Name = '%s'" % name)
+            self.cursor.execute("UPDATE NAME SET COUNT = COUNT + 1 WHERE Name = '%s'" % name)
             self.db.commit()
         except:
             # Rollback in case there is any error
@@ -64,14 +59,6 @@ class db_wrapper():
         else:
             return data[0]
 
-    def last_time(self, name):
-        self.cursor.execute("SELECT VISIT FROM WHOLE WHERE NAME = '%s' " %name)
-        data = self.cursor.fetchone()
-        if data is None:
-            return 0
-        else:
-            return data[0]
-
     def visit_count(self, name):
         self.cursor.execute("SELECT VISIT FROM WHOLE WHERE NAME = '%s' "
                             "AND AGE = %d AND GENDER = %d" % name)
@@ -89,11 +76,9 @@ class db_wrapper():
     def update_visit(self, name):
         try:
             self.cursor.execute("UPDATE WHOLE SET VISIT = VISIT + 1 WHERE Name = '%s'" % name)
-            self.cursor.execute("UPDATE WHOLE SET TIME = '%s' WHERE Name = '%s'" %(str(now.year) + str(now.month) + str(now.day), name))
             self.db.commit()
         except:
             self.db.rollback()
-
 
 
 if __name__ == "__main__":
