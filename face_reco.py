@@ -72,7 +72,7 @@ class face_reco():
                         if detected:
                             print("New face found, please say your name for the record\n")
                             tts.tts("New face found, Say your name!")
-                            # largeNewName = raw_input("Input your name: ")
+                            #
 
                             # largeNewName = voice2text()
                             # t = voice2text()
@@ -86,6 +86,8 @@ class face_reco():
                             except:
                                 tts.tts("Timeout")
                                 largeNewName = "x"
+                                largeNewName = raw_input("Input your name: ")
+                                # largeNewName = "Michael"
 
                             detected = False
                             if not largeNewName == "X" and not largeNewName == "x":
