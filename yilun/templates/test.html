@@ -191,16 +191,16 @@
           <div class="col-2 order-lg-2 col-2 text-center"><i class="d-block fa fa-columns fa-3x"></i></div>
           <div class="col-10 text-lg-right text-left order-lg-1">
             <h4 class="text-primary">Most Frequent Visit</h4>
-            <p id = "MFV">The highest number of visits by one person...
-              <br >0.</p>
+            <p>The highest number of visits by one person...</p>
+            <p style = "color:cyan">{{max_visit}}</p>
           </div>
         </div>
         <div class="row my-5">
           <div class="col-2 order-lg-2 col-2 text-center"><i class="d-block fa fa-circle-thin fa-4x"></i></div>
           <div class="col-10 text-lg-right text-left order-lg-1">
             <h4 class="text-primary">Male/Female Ratio</h4>
-            <p id = "MFR">On average, for each 100 visitors, the gender ratio is...
-            <br >0</p>
+            <p>On average, for each 100 visitors, the gender ratio is...</p>
+            <p style = "color:cyan">{{gen_Rto}}</p>
           </div>
         </div>
 
@@ -210,17 +210,16 @@
           <div class="col-2 text-center"><i class="d-block fa fa-battery-empty fa-3x"></i></div>
           <div class="col-10">
             <h4 class="text-primary">Total Visits</h4>
-            <p id = "TTW">Just how popular are you...
-              <br >Ms. Panda.</p>
-              <p>{{ total_count }}</p>
+            <p>Just how popular are you...</p>
+            <p style = "color:cyan">{{total_count}}</p>
           </div>
         </div>
         <div class="row my-5">
           <div class="col-2 text-center"><i class="d-block mx-auto fa  fa-clone fa-3x"></i></div>
           <div class="col-10">
             <h4 class="text-primary">Glasses Ratio</h4>
-            <p id = "GLS">Also, the ratio of glasses-wearers is...
-              <br >0</p>
+            <p>Also, the ratio of glasses-wearers is...</p>
+            <p style = "color:cyan">{{gls_Rto}}</p>
           </div>
         </div>
       </div>
@@ -269,7 +268,7 @@ var
   var7 = {{max_visit}};
 updateAnalysis();
 update();
-alert(var1);
+
 
 
 
