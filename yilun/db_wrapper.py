@@ -84,7 +84,6 @@ class db_wrapper():
             self.db.rollback()
 
 
-
 if __name__ == "__main__":
     s = db_wrapper()
     # s.add_person("TESTING", 3, 1, 1)

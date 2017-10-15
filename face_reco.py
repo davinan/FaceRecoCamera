@@ -71,20 +71,20 @@ class face_reco():
                     if matchingFace == -1:
                         if detected:
                             # print("New face found, please say your name for the record\n")
-                            tts.tts("New face found, please say your name for the record")
-                            # largeNewName = raw_input("Input your name: ")
+                            # tts.tts("New face found, please say your name for the record")
+                            largeNewName = raw_input("Input your name: ")
 
                             # largeNewName = voice2text()
                             # t = voice2text()
                             # x = threading.Thread(target=t.v2t)
                             # x.start()
                             
-                            t = voice2text.voice2text()
-                            try:
-                                largeNewName = t.v2t()
-                            except:
-                                tts.tts("Timeout")
-                                largeNewName = "x"
+                            # t = voice2text.voice2text()
+                            # try:
+                            #     largeNewName = t.v2t()
+                            # except:
+                            #     tts.tts("Timeout")
+                            #     largeNewName = "x"
 
                             detected = False
                             if not largeNewName == "X" and not largeNewName == "x":
